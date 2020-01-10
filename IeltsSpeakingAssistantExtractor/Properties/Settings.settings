@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="IeltsSpeakingAssistantExtractor.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LaTexLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ResultFolderLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="IdeasPrefix" Type="System.String" Scope="User">
+      <Value Profile="(Default)">+Ideas</Value>
+    </Setting>
+    <Setting Name="AnswerPrefix" Type="System.String" Scope="User">
+      <Value Profile="(Default)">+Answers</Value>
+    </Setting>
+    <Setting Name="IsDictionary" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="IsAnswers" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="IsIdeas" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ResultFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">IELTS_Assistant</Value>
+    </Setting>
+    <Setting Name="DictionaryPrefix" Type="System.String" Scope="User">
+      <Value Profile="(Default)">+Dictionaries</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
