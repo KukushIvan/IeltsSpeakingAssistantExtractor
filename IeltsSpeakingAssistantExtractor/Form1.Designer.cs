@@ -74,9 +74,9 @@ namespace IeltsSpeakingAssistantExtractor
             // btnStartGeneration
             // 
             this.btnStartGeneration.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnStartGeneration.Location = new System.Drawing.Point(3, 375);
+            this.btnStartGeneration.Location = new System.Drawing.Point(3, 357);
             this.btnStartGeneration.Name = "btnStartGeneration";
-            this.btnStartGeneration.Size = new System.Drawing.Size(794, 72);
+            this.btnStartGeneration.Size = new System.Drawing.Size(794, 90);
             this.btnStartGeneration.TabIndex = 0;
             this.btnStartGeneration.Text = "Сделать хорошо";
             this.btnStartGeneration.UseVisualStyleBackColor = true;
@@ -119,7 +119,7 @@ namespace IeltsSpeakingAssistantExtractor
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(794, 56);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(794, 53);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // btnSelectLatex
@@ -127,7 +127,7 @@ namespace IeltsSpeakingAssistantExtractor
             this.btnSelectLatex.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSelectLatex.Location = new System.Drawing.Point(3, 3);
             this.btnSelectLatex.Name = "btnSelectLatex";
-            this.btnSelectLatex.Size = new System.Drawing.Size(391, 50);
+            this.btnSelectLatex.Size = new System.Drawing.Size(391, 47);
             this.btnSelectLatex.TabIndex = 0;
             this.btnSelectLatex.Text = "Выберите расположение pdfLatex";
             this.btnSelectLatex.UseVisualStyleBackColor = true;
@@ -150,11 +150,11 @@ namespace IeltsSpeakingAssistantExtractor
             this.tableLayoutPanel3.Controls.Add(this.btnResultFolder, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tbResultFolder, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 65);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 62);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(794, 56);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(794, 53);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // btnResultFolder
@@ -162,7 +162,7 @@ namespace IeltsSpeakingAssistantExtractor
             this.btnResultFolder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnResultFolder.Location = new System.Drawing.Point(3, 3);
             this.btnResultFolder.Name = "btnResultFolder";
-            this.btnResultFolder.Size = new System.Drawing.Size(391, 50);
+            this.btnResultFolder.Size = new System.Drawing.Size(391, 47);
             this.btnResultFolder.TabIndex = 0;
             this.btnResultFolder.Text = "Выберите расположение папки с результатами";
             this.btnResultFolder.UseVisualStyleBackColor = true;
@@ -185,11 +185,11 @@ namespace IeltsSpeakingAssistantExtractor
             this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.tbResultFileName, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 127);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 121);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(794, 56);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(794, 53);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // label1
@@ -198,7 +198,7 @@ namespace IeltsSpeakingAssistantExtractor
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.Location = new System.Drawing.Point(256, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 56);
+            this.label1.Size = new System.Drawing.Size(138, 53);
             this.label1.TabIndex = 0;
             this.label1.Text = "Имя файла по умолчанию";
             // 
@@ -219,11 +219,11 @@ namespace IeltsSpeakingAssistantExtractor
             this.tableLayoutPanel5.Controls.Add(this.cbGenerateDictionary, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel8, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 189);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 180);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(794, 56);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(794, 53);
             this.tableLayoutPanel5.TabIndex = 4;
             // 
             // cbGenerateDictionary
@@ -232,7 +232,7 @@ namespace IeltsSpeakingAssistantExtractor
             this.cbGenerateDictionary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbGenerateDictionary.Location = new System.Drawing.Point(3, 3);
             this.cbGenerateDictionary.Name = "cbGenerateDictionary";
-            this.cbGenerateDictionary.Size = new System.Drawing.Size(391, 50);
+            this.cbGenerateDictionary.Size = new System.Drawing.Size(391, 47);
             this.cbGenerateDictionary.TabIndex = 0;
             this.cbGenerateDictionary.Text = "Генерировать словарь";
             this.cbGenerateDictionary.UseVisualStyleBackColor = true;
@@ -250,7 +250,7 @@ namespace IeltsSpeakingAssistantExtractor
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(391, 50);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(391, 47);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
             // label2
@@ -259,7 +259,7 @@ namespace IeltsSpeakingAssistantExtractor
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(385, 25);
+            this.label2.Size = new System.Drawing.Size(385, 23);
             this.label2.TabIndex = 0;
             this.label2.Text = "Добавить префикс к имени файла";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -267,7 +267,7 @@ namespace IeltsSpeakingAssistantExtractor
             // tbDictionaryPrefix
             // 
             this.tbDictionaryPrefix.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbDictionaryPrefix.Location = new System.Drawing.Point(3, 28);
+            this.tbDictionaryPrefix.Location = new System.Drawing.Point(3, 26);
             this.tbDictionaryPrefix.Name = "tbDictionaryPrefix";
             this.tbDictionaryPrefix.Size = new System.Drawing.Size(385, 20);
             this.tbDictionaryPrefix.TabIndex = 1;
@@ -281,11 +281,11 @@ namespace IeltsSpeakingAssistantExtractor
             this.tableLayoutPanel6.Controls.Add(this.cbGenerateIdeas, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel9, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 251);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 239);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(794, 56);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(794, 53);
             this.tableLayoutPanel6.TabIndex = 5;
             // 
             // cbGenerateIdeas
@@ -294,7 +294,7 @@ namespace IeltsSpeakingAssistantExtractor
             this.cbGenerateIdeas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbGenerateIdeas.Location = new System.Drawing.Point(3, 3);
             this.cbGenerateIdeas.Name = "cbGenerateIdeas";
-            this.cbGenerateIdeas.Size = new System.Drawing.Size(391, 50);
+            this.cbGenerateIdeas.Size = new System.Drawing.Size(391, 47);
             this.cbGenerateIdeas.TabIndex = 0;
             this.cbGenerateIdeas.Text = "Генерировать идеи";
             this.cbGenerateIdeas.UseVisualStyleBackColor = true;
@@ -312,7 +312,7 @@ namespace IeltsSpeakingAssistantExtractor
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(391, 50);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(391, 47);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // label3
@@ -321,7 +321,7 @@ namespace IeltsSpeakingAssistantExtractor
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(385, 25);
+            this.label3.Size = new System.Drawing.Size(385, 23);
             this.label3.TabIndex = 0;
             this.label3.Text = "Добавить префикс к имени файла";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -329,7 +329,7 @@ namespace IeltsSpeakingAssistantExtractor
             // tbIdeaPrefix
             // 
             this.tbIdeaPrefix.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbIdeaPrefix.Location = new System.Drawing.Point(3, 28);
+            this.tbIdeaPrefix.Location = new System.Drawing.Point(3, 26);
             this.tbIdeaPrefix.Name = "tbIdeaPrefix";
             this.tbIdeaPrefix.Size = new System.Drawing.Size(385, 20);
             this.tbIdeaPrefix.TabIndex = 1;
@@ -343,11 +343,11 @@ namespace IeltsSpeakingAssistantExtractor
             this.tableLayoutPanel7.Controls.Add(this.cbGenerateAnswers, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel10, 2, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 313);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 298);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(794, 56);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(794, 53);
             this.tableLayoutPanel7.TabIndex = 6;
             // 
             // cbGenerateAnswers
@@ -356,7 +356,7 @@ namespace IeltsSpeakingAssistantExtractor
             this.cbGenerateAnswers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbGenerateAnswers.Location = new System.Drawing.Point(3, 3);
             this.cbGenerateAnswers.Name = "cbGenerateAnswers";
-            this.cbGenerateAnswers.Size = new System.Drawing.Size(391, 50);
+            this.cbGenerateAnswers.Size = new System.Drawing.Size(391, 47);
             this.cbGenerateAnswers.TabIndex = 0;
             this.cbGenerateAnswers.Text = "Генерировать ответы";
             this.cbGenerateAnswers.UseVisualStyleBackColor = true;
@@ -375,13 +375,13 @@ namespace IeltsSpeakingAssistantExtractor
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(391, 50);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(391, 47);
             this.tableLayoutPanel10.TabIndex = 1;
             // 
             // tbAnswerPrefix
             // 
             this.tbAnswerPrefix.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbAnswerPrefix.Location = new System.Drawing.Point(3, 28);
+            this.tbAnswerPrefix.Location = new System.Drawing.Point(3, 26);
             this.tbAnswerPrefix.Name = "tbAnswerPrefix";
             this.tbAnswerPrefix.Size = new System.Drawing.Size(385, 20);
             this.tbAnswerPrefix.TabIndex = 1;
@@ -393,7 +393,7 @@ namespace IeltsSpeakingAssistantExtractor
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(385, 25);
+            this.label5.Size = new System.Drawing.Size(385, 23);
             this.label5.TabIndex = 0;
             this.label5.Text = "Добавить префикс к имени файла";
             this.label5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

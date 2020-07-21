@@ -36,7 +36,6 @@ namespace IeltsSpeakingAssistantExtractor
         internal string Get(string url)
         {
             var httpClient = HttpClient;
-            string response;
             try
             {
                 var responseAsync = httpClient.GetAsync(url).Result;

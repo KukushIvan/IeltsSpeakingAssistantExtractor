@@ -20,6 +20,7 @@ namespace IeltsSpeakingAssistantExtractor
     public partial class Form1 : Form
     {
         LatexDocument.Document _lt;
+        private StringBuilder _txt;
         private HttpSender _mySender;
         public Form1()
         {
@@ -27,6 +28,7 @@ namespace IeltsSpeakingAssistantExtractor
             Application.ApplicationExit += Application_ApplicationExit;
             Load += Form1_Load;
             _mySender = new HttpSender();
+            _txt = new StringBuilder();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -45,7 +47,10 @@ namespace IeltsSpeakingAssistantExtractor
 
         private void AddBulledParagraph(string paragraphName, dynamic List)
         {
-            _lt.Add(new LatexParagraph(paragraphName));
+            if (!string.IsNullOrEmpty(Settings.Default.LaTexLocation))
+                _lt.Add(new LatexParagraph(paragraphName));
+            _txt.AppendLine();
+            _txt.Append(paragraphName);
             List<string> listOfTopics = new List<string>();
             foreach (dynamic item in List)
             {
@@ -56,15 +61,23 @@ namespace IeltsSpeakingAssistantExtractor
                     AddBulledParagraph(item.text.ToString(), item.body);
                 }
                 else
+                {
                     listOfTopics.Add(item.text.ToString());
+                    _txt.AppendLine("• " + item.text.ToString());
+                }
+                    
             }
-
-            _lt.Add(new LatexList(LatexList.BULLET, listOfTopics));
+            if (!string.IsNullOrEmpty(Settings.Default.LaTexLocation))
+                _lt.Add(new LatexList(LatexList.BULLET, listOfTopics));
         }
         private void GenerateSection(string sectionName, string path)
         {
             LatexFont font = new LatexFont {Size = LatexFont.TEXT_Huge};
-            _lt.Add(new LatexTextTitle(sectionName, font));
+            if (!string.IsNullOrEmpty(Settings.Default.LaTexLocation))
+                _lt.Add(new LatexTextTitle(sectionName, font));
+            _txt.AppendLine();
+            _txt.AppendLine(sectionName);
+            _txt.AppendLine();
             string json = File.ReadAllText(path);
             string cleanJson = Regex.Replace(json, "<.*?>", "");
             dynamic testitems = JObject.Parse(cleanJson);
@@ -74,23 +87,30 @@ namespace IeltsSpeakingAssistantExtractor
                 dynamic value = question.Value as dynamic;
                 if (!value.active.Value)
                     continue;
-                _lt.Add(new LatexParagraph(question.Name, "", font));
+                if (!string.IsNullOrEmpty(Settings.Default.LaTexLocation))
+                    _lt.Add(new LatexParagraph(question.Name, "", font));
+                _txt.AppendLine(question.Name);
                 if (Settings.Default.IsDictionary)
                 {
                     var dictionary = new StringBuilder();
                     foreach (var sentence in value.vocabulary)
                     {
                         dictionary.Append(sentence.text);
-                        dictionary.Append("\r\n");
                     }
-
-                    _lt.Add(new LatexParagraph("Dictionary", dictionary.ToString().Trim()));
+                    if (!String.IsNullOrEmpty(Settings.Default.LaTexLocation))
+                        _lt.Add(new LatexParagraph("Dictionary", dictionary.ToString().Trim()));
+                    _txt.AppendLine();
+                    _txt.AppendLine("Dictionary");
+                    _txt.AppendLine(dictionary.ToString().Trim());
                 }
                 if (value.ideas != null || value.answer != null //Значит вопросы второго типа
                 )
                 {
                     string quest = value.questions[0].text + " " + value.questions[1].text;
-                    _lt.Add(new LatexParagraph("Question: " + quest));
+                    if (!String.IsNullOrEmpty(Settings.Default.LaTexLocation))
+                        _lt.Add(new LatexParagraph("Question: " + quest));
+                    _txt.AppendLine();
+                    _txt.AppendLine("Question: " + quest);
                     GenerateQuestion(value.questions[2], value.ideas, value.answer);
                 }
                 else
@@ -103,9 +123,15 @@ namespace IeltsSpeakingAssistantExtractor
 
         private void GenerateQuestion(dynamic question, dynamic answer, dynamic ideas)
         {
-            _lt.Add(new LatexParagraph("Question: "));
-            var questionList = new List<string>(question.text.ToString().Split('#'));
-            _lt.Add(new LatexList(LatexList.BULLET, questionList));
+            if (!String.IsNullOrEmpty(Settings.Default.LaTexLocation))
+                _lt.Add(new LatexParagraph("Question: "));
+            _txt.AppendLine();
+            _txt.AppendLine("Question: ");
+            string questions = question.text.ToString();
+            var questionList = new List<string>(questions.Split('#'));
+            if (!String.IsNullOrEmpty(Settings.Default.LaTexLocation))
+                _lt.Add(new LatexList(LatexList.BULLET, questionList));
+            _txt.AppendLine(questions.Replace("#", "\r\n"));
 
             if (Settings.Default.IsAnswers 
                 & answer.Count != 0)
@@ -117,6 +143,7 @@ namespace IeltsSpeakingAssistantExtractor
 
         private void btnStartGeneration_Click(object sender, EventArgs e)
         {
+            _txt.Clear();
             string versionFile = Settings.Default.ResultFolderLocation + Path.DirectorySeparatorChar + "versions.json";
             bool isSectionsUpdate = false;
             string section1FileName =
@@ -160,13 +187,22 @@ namespace IeltsSpeakingAssistantExtractor
             }
             if(isSectionsUpdate)
                 File.WriteAllText(versionFile, siteVersion);
-
-            _lt = new Document(Settings.Default.LaTexLocation, Settings.Default.ResultFolderLocation);
+            if (!String.IsNullOrEmpty(Settings.Default.LaTexLocation))
+                _lt = new Document(Settings.Default.LaTexLocation, Settings.Default.ResultFolderLocation);
             LatexPageTitle title = new LatexPageTitle("IELTS Assistant");
-            _lt.Add(title);
+            if (!String.IsNullOrEmpty(Settings.Default.LaTexLocation))
+                _lt.Add(title);
+            _txt.AppendLine("IELTS Assistant");
             GenerateSection("Section 1", section1FileName);
             GenerateSection("Section 2", section2FileName);
             GenerateSection("Section 3", section3FileName);
+            File.WriteAllText(Settings.Default.ResultFolderLocation+Path.DirectorySeparatorChar+
+                              Settings.Default.ResultFileName +
+                              (Settings.Default.IsDictionary ? Settings.Default.DictionaryPrefix : "") +
+                              (Settings.Default.IsAnswers ? Settings.Default.AnswerPrefix : "") +
+                              (Settings.Default.IsIdeas ? Settings.Default.IdeasPrefix : "")
+                              + ".txt", _txt.ToString());
+            if(!String.IsNullOrEmpty(Settings.Default.LaTexLocation))
             _lt.CreatePdf(Settings.Default.ResultFileName +
                           (Settings.Default.IsDictionary ? Settings.Default.DictionaryPrefix: "")+
                           (Settings.Default.IsAnswers ? Settings.Default.AnswerPrefix : "") +
