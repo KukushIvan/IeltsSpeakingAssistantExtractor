@@ -159,13 +159,13 @@ namespace IeltsSpeakingAssistantExtractor
                 oldVersions = JObject.Parse(versions);
             }
 
-            string siteVersion = _mySender.Get("https://dbvirtualeducation.com/ielts/api.php?versions ");
+            string siteVersion = _mySender.Get("https://dbvirtualeducation.com/ielts/api/versions ");
             siteVersions = JObject.Parse(siteVersion);
             if (oldVersions == null ||
                 oldVersions.section1 == null
                 | oldVersions.section1 != siteVersions.section1)
             {
-                string section1 = _mySender.Get("https://dbvirtualeducation.com/ielts/api.php?section1 ");
+                string section1 = _mySender.Get("https://dbvirtualeducation.com/ielts/api/section1 ");
                 File.WriteAllText(section1FileName, section1);
                 isSectionsUpdate = true;
             }
@@ -173,7 +173,7 @@ namespace IeltsSpeakingAssistantExtractor
                 oldVersions.section2 == null
                 | oldVersions.section2 != siteVersions.section2)
             {
-                string section2 = _mySender.Get("https://dbvirtualeducation.com/ielts/api.php?section2");
+                string section2 = _mySender.Get("https://dbvirtualeducation.com/ielts/api/section2");
                 File.WriteAllText(section2FileName, section2);
                 isSectionsUpdate = true;
             }
@@ -181,7 +181,7 @@ namespace IeltsSpeakingAssistantExtractor
                 oldVersions.section3 == null
                 | oldVersions.section3 != siteVersions.section3)
             {
-                string section3 = _mySender.Get("https://dbvirtualeducation.com/ielts/api.php?section3");
+                string section3 = _mySender.Get("https://dbvirtualeducation.com/ielts/api/section3");
                 File.WriteAllText(section3FileName, section3);
                 isSectionsUpdate = true;
             }
