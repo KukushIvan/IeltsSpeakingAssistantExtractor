@@ -1,0 +1,145 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="IeltsSpeakingAssistantExtractor.MainWindow"
+        Title="IELTS Speaking Assistant Extractor"
+        Icon="/Assets/icon.ico"
+        Width="650" MinHeight="650"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterScreen"
+        Background="#F3F4F6">
+    <Window.Styles>
+        <!-- Modern Styles -->
+        <Style Selector="TextBlock.heading">
+            <Setter Property="FontSize" Value="28" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="#1F2937" />
+        </Style>
+        <Style Selector="TextBlock.subheading">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="#6B7280" />
+            <Setter Property="Margin" Value="0,0,0,20"/>
+        </Style>
+        <Style Selector="Button.primary">
+            <Setter Property="Background" Value="#3B82F6" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        <Style Selector="Button.primary:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#2563EB" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style Selector="Button.secondary">
+            <Setter Property="Background" Value="#E5E7EB" />
+            <Setter Property="Foreground" Value="#374151" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="FontWeight" Value="Medium" />
+        </Style>
+        <Style Selector="Button.secondary:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#D1D5DB" />
+            <Setter Property="Foreground" Value="#374151" />
+        </Style>
+        <Style Selector="Border.card">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="CornerRadius" Value="16" />
+            <Setter Property="Padding" Value="30" />
+            <Setter Property="BoxShadow" Value="0 10 15 -3 #10000000, 0 4 6 -2 #00000000" />
+        </Style>
+        <Style Selector="TextBox">
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="Padding" Value="8,6" />
+        </Style>
+        <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+            <Setter Property="BorderBrush" Value="#3B82F6" />
+        </Style>
+        <Style Selector="CheckBox">
+            <Setter Property="Foreground" Value="#374151" />
+            <Setter Property="FontWeight" Value="Medium" />
+        </Style>
+        <Style Selector="Label">
+            <Setter Property="Foreground" Value="#374151" />
+            <Setter Property="FontWeight" Value="Medium" />
+        </Style>
+    </Window.Styles>
+
+    <Panel>
+        <!-- Background decorative blob -->
+        <Ellipse Fill="#DBEAFE" Width="400" Height="400" Margin="-100,-100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0.5"/>
+        <Ellipse Fill="#E0E7FF" Width="500" Height="500" Margin="0,0,-200,-200" HorizontalAlignment="Right" VerticalAlignment="Bottom" Opacity="0.5"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Border Classes="card" Margin="30,40,30,40" HorizontalAlignment="Stretch" VerticalAlignment="Top" MaxWidth="600">
+                <StackPanel Spacing="15">
+                    
+                    <Grid ColumnDefinitions="*, Auto">
+                        <StackPanel Grid.Column="0" HorizontalAlignment="Center" Spacing="5" Margin="0,0,0,10">
+                            <TextBlock x:Name="AppTitle" Classes="heading" Text="IELTS Assistant" TextAlignment="Center" />
+                            <TextBlock x:Name="AppSubtitle" Classes="subheading" Text="Экспорт уроков и генерация PDF" TextAlignment="Center" Margin="0" />
+                        </StackPanel>
+                        <ComboBox x:Name="LanguageComboBox" Grid.Column="1" VerticalAlignment="Top" SelectionChanged="OnLanguageChanged">
+                            <ComboBoxItem Content="Русский" />
+                            <ComboBoxItem Content="English" />
+                            <ComboBoxItem Content="中文" />
+                            <ComboBoxItem Content="हिन्दी" />
+                            <ComboBoxItem Content="Tiếng Việt" />
+                            <ComboBoxItem Content="العربية" />
+                            <ComboBoxItem Content="Español" />
+                        </ComboBox>
+                    </Grid>
+                    
+                    <Separator Background="#E5E7EB" Height="1" Margin="0,5"/>
+
+                    <!-- Result Folder Selection -->
+                    <StackPanel Spacing="5">
+                        <Label x:Name="LabelFolder" Content="Папка для результатов:" FontWeight="SemiBold"/>
+                        <Grid ColumnDefinitions="*, 10, Auto">
+                            <TextBox Name="ResultFolderTextBox" Grid.Column="0" IsReadOnly="True" Watermark="C:\..." VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+                            <Button Name="SelectFolderButton" Classes="secondary" Grid.Column="2" Content="Выбрать папку" Padding="15,8" Click="OnSelectFolderClicked" VerticalAlignment="Stretch"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- Result File Name -->
+                    <StackPanel Spacing="5" Margin="0,5,0,0">
+                        <Label x:Name="LabelFilename" Content="Имя базового файла:" FontWeight="SemiBold"/>
+                        <TextBox Name="ResultFileNameTextBox" Watermark="IeltsAssistant_2026-02-27"/>
+                    </StackPanel>
+
+                    <Separator Background="#E5E7EB" Height="1" Margin="0,10"/>
+
+                    <!-- Generation Options Title -->
+                    <TextBlock x:Name="LabelOptions" Text="Настройки генерации" FontWeight="SemiBold" Foreground="#1F2937" FontSize="16" Margin="0,5,0,5"/>
+                    <CheckBox Name="UsePrefixesCheckBox" Content="Использовать префиксы" IsChecked="True" Margin="0,0,0,5" FontWeight="SemiBold"/>
+
+                    <!-- Options Flex/Grid -->
+                    <StackPanel Spacing="10" Margin="0,0,0,10">
+                        <Grid ColumnDefinitions="*, Auto, 110">
+                            <CheckBox Name="GenerateDictionaryCheckBox" Grid.Column="0" Content="Генерировать словарь" VerticalAlignment="Center"/>
+                            <Label x:Name="LabelDictPrefix" Grid.Column="1" Content="Префикс:" VerticalAlignment="Center" Margin="10,0"/>
+                            <TextBox Name="DictionaryPrefixTextBox" Grid.Column="2" Text="-dict" VerticalAlignment="Center" IsEnabled="{Binding #UsePrefixesCheckBox.IsChecked}"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*, Auto, 110">
+                            <CheckBox Name="GenerateIdeasCheckBox" Grid.Column="0" Content="Генерировать идеи" VerticalAlignment="Center"/>
+                            <Label x:Name="LabelIdeaPrefix" Grid.Column="1" Content="Префикс:" VerticalAlignment="Center" Margin="10,0"/>
+                            <TextBox Name="IdeaPrefixTextBox" Grid.Column="2" Text="-ideas" VerticalAlignment="Center" IsEnabled="{Binding #UsePrefixesCheckBox.IsChecked}"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*, Auto, 110">
+                            <CheckBox Name="GenerateAnswersCheckBox" Grid.Column="0" Content="Генерировать ответы" VerticalAlignment="Center"/>
+                            <Label x:Name="LabelAnswerPrefix" Grid.Column="1" Content="Префикс:" VerticalAlignment="Center" Margin="10,0"/>
+                            <TextBox Name="AnswerPrefixTextBox" Grid.Column="2" Text="-answers" VerticalAlignment="Center" IsEnabled="{Binding #UsePrefixesCheckBox.IsChecked}"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- Action Button -->
+                    <Button Name="StartGenerationButton" Classes="primary" Content="Сделать хорошо 🚀" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="0, 10, 0, 0" Height="50" Click="OnStartGenerationClicked"/>
+
+                    <!-- Progress/Status -->
+                    <TextBlock Name="StatusTextBlock" TextAlignment="Center" Margin="0,5,0,0" FontWeight="Medium" TextWrapping="Wrap"/>
+
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+    </Panel>
+</Window>
